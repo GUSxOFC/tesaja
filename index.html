@@ -1,267 +1,131 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Has Hacked</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <title>XNXX.com</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        html, body { padding: 0; margin: 0; width: 100%; height: 100%; }
-        * {box-sizing: border-box;}
-        body { 
-            text-align: center; 
-            padding: 0; 
-            background: #d6433b; 
-            color: #fff; 
-            font-family: 'Share Tech Mono', monospace; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center;
+        .video-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .video-thumbnail {
+            background-color: #374151;
             position: relative;
             overflow: hidden;
         }
-        
-        /* Background pattern kotak-kotak aesthetic */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
+        .video-thumbnail img {
             width: 100%;
             height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
-            background-size: 30px 30px;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        /* Overlay gelap untuk kontras */
-        body::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        h1 { 
-            font-size: 42px; 
-            font-weight: 700; 
-            text-align: center; 
-            font-family: 'Orbitron', sans-serif;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        article { 
-            display: block; 
-            width: 700px; 
-            padding: 50px; 
-            margin: 0 auto; 
-            position: relative;
-            z-index: 1;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-        
-        a { color: #fff; font-weight: bold;}
-        a:hover { text-decoration: none; }
-        
-        /* Style untuk logo warning dengan efek glitch */
-        .warning-icon {
-            width: 90px;
-            margin-top: 1em;
-            position: relative;
-            display: inline-block;
-            animation: glitch 3s infinite;
-            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
-            z-index: 1;
-        }
-        
-        @keyframes glitch {
-            0%, 100% { transform: none; opacity: 1; }
-            5% { transform: skew(5deg); opacity: 0.9; }
-            10% { transform: skew(-5deg); opacity: 0.9; }
-            15% { transform: none; opacity: 1; }
-        }
-        
-        .warning-icon::before, 
-        .warning-icon::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: inherit;
-            opacity: 0;
-        }
-        
-        .warning-icon::before {
-            animation: glitchTop 2s infinite linear alternate-reverse;
-            clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
-            color: #ff0080;
-        }
-        
-        .warning-icon::after {
-            animation: glitchBot 3s infinite linear alternate-reverse;
-            clip-path: polygon(0 66%, 100% 66%, 100% 100%, 0 100%);
-            color: #00ffea;
-        }
-        
-        @keyframes glitchTop {
-            0% { transform: translate(0); opacity: 0; }
-            10% { transform: translate(-2px, -2px); opacity: 0.8; }
-            20% { transform: translate(2px, 2px); opacity: 0.6; }
-            30% { transform: translate(-2px, 2px); opacity: 0.4; }
-            40% { transform: translate(2px, -2px); opacity: 0.2; }
-            50%, 100% { transform: translate(0); opacity: 0; }
-        }
-        
-        @keyframes glitchBot {
-            0% { transform: translate(0); opacity: 0; }
-            10% { transform: translate(2px, 2px); opacity: 0.6; }
-            20% { transform: translate(-2px, -2px); opacity: 0.8; }
-            30% { transform: translate(2px, -2px); opacity: 0.4; }
-            40% { transform: translate(-2px, 2px); opacity: 0.2; }
-            50%, 100% { transform: translate(0); opacity: 0; }
-        }
-        
-        /* Style untuk nama painzy - aesthetic gelap */
-        .hacker-name {
-            color: #00b3b3;
-            font-weight: 700;
-            text-shadow: 0 0 8px rgba(0, 179, 179, 0.6);
-            position: relative;
-            display: inline-block;
-            padding: 0 5px;
-            letter-spacing: 1px;
-            background: linear-gradient(45deg, #00b3b3, #008b8b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hacker-name::after {
-            content: "";
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00b3b3, transparent);
-            opacity: 0.8;
-            animation: linePulse 2s infinite;
-        }
-        
-        @keyframes linePulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-        
-        p {
-            font-size: 18px;
-            line-height: 1.5;
-            position: relative;
-            z-index: 1;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Floating squares decoration */
-        .floating-squares {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .square {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .square:nth-child(1) {
-            width: 20px;
-            height: 20px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-        
-        .square:nth-child(2) {
-            width: 15px;
-            height: 15px;
-            top: 60%;
-            left: 85%;
-            animation-delay: 1s;
-        }
-        
-        .square:nth-child(3) {
-            width: 25px;
-            height: 25px;
-            top: 80%;
-            left: 15%;
-            animation-delay: 2s;
-        }
-        
-        .square:nth-child(4) {
-            width: 18px;
-            height: 18px;
-            top: 30%;
-            left: 75%;
-            animation-delay: 3s;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+            object-fit: cover;
         }
     </style>
 </head>
-<body>
-    <div class="floating-squares">
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-    </div>
-    
-    <article>
-        <svg class="warning-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 202.24 202.24">
-            <defs>
-                <style>.cls-1{fill:#fff;}</style>
-            </defs>
-            <title>Asset 3</title>
-            <g id="Layer_2" data-name="Layer 2">
-                <g id="Capa_1" data-name="Capa 1">
-                    <path class="cls-1" d="M101.12,0A101.12,101.12,0,1,0,202.24,101.12,101.12,101.12,0,0,0,101.12,0ZM159,148.76H43.28a11.57,11.57,0,0,1-10-17.34L91.09,31.16a11.57,11.57,0,0,1,20.06,0L169,131.43a11.57,11.57,0,0,1-10,17.34Z"/>
-                    <path class="cls-1" d="M101.12,36.93h0L43.27,137.21H159L101.13,36.94Zm0,88.7a7.71,7.71,0,1,1,7.71-7.71A7.71,7.71,0,0,1,101.12,125.63Zm7.71-50.13a7.56,7.56,0,0,1-.11,1.3l-3.8,22.49a3.86,3.86,0,0,1-7.61,0l-3.8-22.49a8,8,0,0,1-.11-1.3,7.71,7.71,0,1,1,15.43,0Z"/>
-                </g>
-            </g>
-        </svg>
-        
-        <h1>Hello your site has been hacked by  <span class="hacker-name">LarzxzXploit</span></h1>
-        
-        <div>
-            <p>Reflecting that a single vulnerability can compromise the entire system.</p>
-            <p>&mdash; t.me/LarzxzXploit &mdash;</p>
+<body class="bg-gray-900 text-white min-h-screen">
+    <header class="bg-gray-800 shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <h1 class="text-2xl font-bold text-red-600">
+                <i class="fas fa-play-circle mr-2"></i>XNXX Search
+            </h1>
         </div>
-    </article>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <section class="mb-8">
+            <div class="max-w-2xl mx-auto">
+                <form id="searchForm" class="flex">
+                    <input 
+                        type="text" 
+                        id="searchInput"
+                        placeholder="Video apa yang anda cari..." 
+                        class="flex-grow px-4 py-3 rounded-l-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-red-500 text-white placeholder-gray-400"
+                    >
+                    <button 
+                        type="submit"
+                        class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-r-lg font-semibold transition-colors"
+                    >
+                        <i class="fas fa-search mr-2"></i>Cari
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <section id="resultsArea">
+            <h2 class="text-xl font-semibold mb-4">Hasil Pencarian</h2>
+            <div id="videoGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                <!-- Video cards akan dimuat di sini oleh JavaScript -->
+            </div>
+             <div id="loadingIndicator" class="hidden text-center py-10">
+                <i class="fas fa-spinner fa-spin text-4xl text-red-600"></i>
+                <p class="mt-2">Sedang memuat...</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchForm = document.getElementById('searchForm');
+            const searchInput = document.getElementById('searchInput');
+            const videoGrid = document.getElementById('videoGrid');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+
+            function createVideoCard(video) {
+                const card = document.createElement('a');
+                card.href = video.url;
+                card.target = '_blank'; // Buka di tab baru
+                card.className = 'video-card bg-gray-800 rounded-lg overflow-hidden cursor-pointer block';
+                card.innerHTML = `
+                    <div class="video-thumbnail aspect-w-16 aspect-h-9 relative">
+                        <img src="${video.thumbnail}" alt="${video.title}" class="w-full h-40 object-cover" loading="lazy">
+                        <span class="absolute bottom-2 right-2 bg-black bg-opacity-75 px-2 py-1 text-xs rounded">${video.duration}</span>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-semibold text-sm mb-1 line-clamp-2">${video.title}</h3>
+                    </div>
+                `;
+                return card;
+            }
+
+            async function performSearch(query) {
+                loadingIndicator.classList.remove('hidden');
+                videoGrid.innerHTML = ''; // Kosongkan grid
+
+                try {
+                    // INI ADALAH BAGIAN KRUSIAL: MEMANGGIL BACKEND KITA
+                    const response = await fetch(`http://localhost:3000/search?q=${encodeURIComponent(query)}`);
+                    if (!response.ok) {
+                        throw new Error('Server error');
+                    }
+                    const videos = await response.json();
+                    
+                    if (videos.length === 0) {
+                        videoGrid.innerHTML = '<p class="col-span-full text-center text-gray-500">Tidak ada video ditemukan.</p>';
+                    } else {
+                        videos.forEach(video => {
+                            videoGrid.appendChild(createVideoCard(video));
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    videoGrid.innerHTML = '<p class="col-span-full text-center text-red-500">Gagal mengambil data. Pastikan server backend berjalan.</p>';
+                } finally {
+                    loadingIndicator.classList.add('hidden');
+                }
+            }
+
+            searchForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const query = searchInput.value.trim();
+                if (query) {
+                    performSearch(query);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
